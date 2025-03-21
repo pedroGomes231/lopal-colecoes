@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Object>s</Object></title>
+</head>
+<body>
+    <script>
+        //let nome1 = 'Aline';
+        //let idade1 = 15
+        //let sesi1 = 'Ipiranga';
+        //let temPet1 = true;
+
+        //let nome2 = 'Barbara';
+        //let idade2 = 16
+        //let sesi2 = 'Vila leopoldina';
+        //let temPet2 = true 
+        let aluno = {
+            nome: 'aline',
+            idade: 15,
+            sesi: 'Ipiranga',
+            temPet: true   
+        }
+       // document.write(aluno);
+        console.log(aluno);
+
+        document.write('Nome:' + aluno.nome + '<br>');
+        document.write('idade:' + aluno.idade + '<br>');
+        document.write('SESI:' + aluno.sesi + '<br>');
+        document.write('tem Pet?:' + aluno.temPet + '<br>');
+        
+        // criando um array de objetos 
+
+        let alunos = [
+            {nome: 'Aline', idade: 15, sesi: 'Ipiranga', temPet: true},
+            {nome: 'Barbara', idade:16, sesi: 'Vila Leopoldina', temPet:true}
+        ];
+
+        for (let i = 0; i < alunos.length; i++) {
+            //document.write('<p>O(a) aluno(a) ' + alunos[i].nome + ' tem' + 
+                //alunos[i].idade + ' anos e é do SESI ' + alunos[i].sesi + '.</p>');
+
+                document.write(`<p>O(a) aluno(a) ${alunos}[i].nome} tem ${alunos[i].idade} anos e é do SESI ${alunos[i].
+                    sesi}. ${alunos[i].temPet ? 
+                    "Tem Pet." : "Não tem Pet."}</p`);
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <button type="button" onclick="adicionarAlunos()">Adicionar Alunos</button>
+<button type="button" onclick="removerUltimoAluno()">Remover Último Aluno</button>
+<br><br>
+
+<output></output>
+ 
+    <script>
+    
+        let alunos = [
+            { nome: 'Pedro Gomes', idade: 15, sesi: 'Vila leopoldina', temPet: true },
+            { nome: 'Mario', idade: 16, sesi: 'Vila Leopoldina', temPet: false }
+        ];
+ 
+        function imprimirAlunos() {
+            document.querySelector('output').innerHTML = '<h1>Lista de Alunos Cadastrados</h1>';
+ 
+ 
+            for (let i = 0; i < alunos.length; i++) {
+                document.querySelector('output').innerHTML += 
+                    `Nome: ${alunos[i].nome}<br>Idade: ${alunos[i].idade}<br>SESI: ${alunos[i].sesi}<br>Tem pet? ${alunos[i].temPet ? "Sim" : "Não"}<br><br>`;
+            }
+        }
+ 
+        function adicionarAlunos() {
+ 
+            let nome = prompt('Digite o nome do(a) aluno(a):');
+            let idade = prompt('Digite a idade do(a) aluno(a):');
+            let sesi = prompt('Digite o SESI do(a) aluno(a):');
+            let temPet = confirm('O aluno(a) tem pet?') ? true : false;
+ 
+ 
+            let novoAluno = {
+                nome: nome,
+                idade: parseInt(idade),
+                sesi: sesi,
+                temPet: temPet
+            };
+ 
+            alunos.push(novoAluno);
+ 
+            let opcaoUsuario = confirm('Deseja adicionar mais um aluno?');
+            while (opcaoUsuario) {
+                adicionarAlunos();
+                opcaoUsuario = confirm('Deseja adicionar mais um aluno?');
+            }
+ 
+            imprimirAlunos();
+        }
+        
+        function removerUltimoAluno() {
+            if (alunos.length > 0) { 
+                alunos.pop();
+                imprimirAlunos();
+            } else {
+                alert("Não há mais alunos na lista!");
+            }
+        }
+   </script> 
+</body>
+</html>
